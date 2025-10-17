@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Interaktif Topologi Jaringan</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #4f8ef7, #73c8a9);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  header {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  button {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: #222;
+    color: #fff;
+  }
+
+  #info {
+    margin-top: 25px;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  img {
+    margin-top: 10px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  📡 Aplikasi Interaktif: Topologi Jaringan Komputer
+</header>
+
+<main>
+  <div class="container">
+    <p>Topologi jaringan adalah cara atau bentuk hubungan antar komputer dalam suatu jaringan.</p>
+    <p>Terdapat beberapa jenis topologi jaringan yang umum digunakan:</p>
+
+    <div class="buttons">
+      <button onclick="tampil('bus')">Topologi Bus</button>
+      <button onclick="tampil('ring')">Topologi Ring</button>
+      <button onclick="tampil('star')">Topologi Star</button>
+      <button onclick="tampil('mesh')">Topologi Mesh</button>
+      <button onclick="tampil('tree')">Topologi Tree</button>
+      <button onclick="tampil('hybrid')">Topologi Hybrid</button>
+    </div>
+
+    <div id="info">
+      <h2>👆 Pilih salah satu topologi di atas</h2>
+      <p>Untuk melihat penjelasan dan gambar topologinya.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Dibuat oleh Davino Bintang Rafisyah | Kelas 10 TKJ 2
+</footer>
+
+<script>
+  const dataTopologi = {
+    bus: {
+      nama: "Topologi Bus",
+      deskripsi: "Topologi bus menggunakan satu kabel utama (backbone) sebagai jalur komunikasi. Semua perangkat terhubung ke kabel ini.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/0/0b/BusNetwork.svg"
+    },
+    ring: {
+      nama: "Topologi Ring",
+      deskripsi: "Setiap komputer terhubung ke dua komputer lain membentuk lingkaran. Data berjalan satu arah hingga mencapai tujuan.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/d/d0/RingNetwork.svg"
+    },
+    star: {
+      nama: "Topologi Star",
+      deskripsi: "Setiap komputer terhubung ke satu titik pusat (hub atau switch). Paling sering digunakan di jaringan modern.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/1/16/StarNetwork.svg"
+    },
+    mesh: {
+      nama: "Topologi Mesh",
+      deskripsi: "Setiap perangkat terhubung langsung ke perangkat lain. Sangat handal tapi mahal dan rumit.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/6/6d/MeshNetwork.svg"
+    },
+    tree: {
+      nama: "Topologi Tree",
+      deskripsi: "Gabungan topologi star dan bus. Struktur hierarkis seperti pohon, cocok untuk jaringan skala besar.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/9/9f/TreeNetwork.svg"
+    },
+    hybrid: {
+      nama: "Topologi Hybrid",
+      deskripsi: "Kombinasi dari dua atau lebih jenis topologi (misal star dan ring). Fleksibel dan bisa disesuaikan dengan kebutuhan jaringan.",
+      gambar: "https://upload.wikimedia.org/wikipedia/commons/f/f9/HybridNetwork.svg"
+    }
+  };
+
+  function tampil(jenis) {
+    const info = document.getElementById("info");
+    const t = dataTopologi[jenis];
+    info.innerHTML = `
+      <h2>${t.nama}</h2>
+      <p>${t.deskripsi}</p>
+      <img src="${t.gambar}" alt="${t.nama}">
+    `;
+  }
+</script>
+
+</body>
+</html>
